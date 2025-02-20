@@ -12,15 +12,16 @@
         <div class="logo-container">
             <img src="logo.png" alt="Logo">
         </div>
-        <ul>
-            <li class="active"><i class="fas fa-home"></i> Home</li>
-            <li><i class="fas fa-info-circle"></i> Tentang Kami</li>
-            <li><i class="fas fa-phone"></i> Konsultasi</li>
-            <li><i class="fas fa-tasks"></i> Program Kami</li>
-            <li><i class="fas fa-money-bill"></i> Transaksi</li>
-            <li><i class="fas fa-newspaper"></i> Berita</li>
-            <li><i class="fas fa-envelope"></i> Kontak Kami</li>
+        <ul id="menu">
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+            <li><a href="konsultasi.html"><i class="fas fa-phone"></i> Konsultasi</a></li>
+            <li><a href="program.html"><i class="fas fa-tasks"></i> Program Kami</a></li>
+            <li><a href="transaksi.html"><i class="fas fa-money-bill"></i> Transaksi</a></li>
+            <li><a href="berita.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+            <li><a href="kontak.html"><i class="fas fa-envelope"></i> Kontak Kami</a></li>
         </ul>
+        
         <div class="logout-container">
             <div class="logout"><i class="fas fa-sign-out-alt"></i> Logout</div>
         </div>
@@ -35,5 +36,23 @@
         </div>
         <div class="welcome-message">Selamat Datang di Dashboard Admin!</div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ambil URL halaman saat ini
+            let currentPage = window.location.pathname.split("/").pop();
+    
+            // Ambil semua link di sidebar
+            let menuItems = document.querySelectorAll("#menu li a");
+    
+            menuItems.forEach(item => {
+                if (item.getAttribute("href") === currentPage) {
+                    item.parentElement.classList.add("active"); // Tambah class active ke <li>
+                } else {
+                    item.parentElement.classList.remove("active"); // Hapus class active dari <li> lain
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>
